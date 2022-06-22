@@ -1,0 +1,17 @@
+.card {
+  width: 600px;
+  background: #fff;
+  border-radius: 10px;
+  &.bigPadding {
+    padding: 20px;
+  }
+  &.padding{
+    padding: 10px;
+  }
+  &.border {
+    border: 1px solid #333;
+  }
+  &.shadow {
+    box-shadow: 0 4px 8px -4px black;
+  }
+}

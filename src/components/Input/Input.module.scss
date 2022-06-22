@@ -1,0 +1,12 @@
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  label {
+    margin: 10px 0 5px;
+  }
+  input,textarea{
+    height: 35px;
+    text-indent: 10px;
+  }
+  
+}
