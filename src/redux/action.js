@@ -1,7 +1,7 @@
 import { SET_TODO, SET_USER, SET_TOKEN } from "./types";
 import api from "../api";
 
-// USER
+
 export const setTokenAction = (token) => ({ type: SET_TOKEN, payload: token });
 export const setUserAction = (user) => ({ type: SET_USER, payload: user });
 

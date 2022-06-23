@@ -1,5 +1,4 @@
 import React from "react";
-import s from "./Login.module.scss";
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
 import Card from "../../components/Card/Card";

@@ -15,7 +15,9 @@ function Header() {
   };
   return (
     <nav className={s.navbar}>
-      <BsCardChecklist className={s.logo} />
+      <Link to={"/"}>
+        <BsCardChecklist className={s.logo} />
+      </Link>
       <ul className={s.headerList}>
         {user ? (
           <>

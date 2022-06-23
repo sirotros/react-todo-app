@@ -1,18 +1,41 @@
 import axios from "axios";
 const api = axios.create({
-	baseURL: `http://localhost:1337/api`,
+  baseURL: `http://localhost:1337/api`,
 });
 
-const addHeaders = config => {
-	const token = localStorage.getItem('jwt');
+const addHeaders = (config) => {
+  const token = localStorage.getItem("jwt");
 
-	if (!token) return config;
+  if (!token) return config;
 
-	config.headers['Authorization'] = `Bearer ${token}`;
+  config.headers["Authorization"] = `Bearer ${token}`;
 
-	return config;
+  return config;
 };
 
 api.interceptors.request.use(addHeaders);
 
 export default api;
+
+export const fetchTodo = async (userId) => {
+  const { data } = await api.get(
+    `/todos?filters[user][id][$eq]=${userId}&sort[0]=createdAt:desc`
+  );
+  return data.data;
+};
+export const fetchTodoDetail = async (todoId) => {
+  const { data } = await api.get(`/todos/${todoId}`);
+  return data;
+};
+export const todoCreate = async (todoData) => {
+  const token = localStorage.getItem("jwt");
+
+  if (!token) return;
+  await api.post("/todos", { data: todoData });
+};
+
+export const deleteTodos = async (todoId) => {
+  return api.delete(`/todos/${todoId}`);
+};
+
+

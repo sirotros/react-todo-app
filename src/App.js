@@ -8,12 +8,12 @@ import Headers from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
+import Detail from "./pages/Detail/Detail";
 function App() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+
   useEffect(() => {
     dispatch(checkLoginAction());
-
   }, []);
   return (
     <>
@@ -21,6 +21,7 @@ function App() {
       <div className={s.container}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path=":id" element={<Detail />} />
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
         </Routes>
