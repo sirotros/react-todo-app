@@ -10,8 +10,9 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import Detail from "./pages/Detail/Detail";
 function App() {
+  const user = useSelector(state => !!state.user)
   const dispatch = useDispatch();
-
+  console.log(user)
   useEffect(() => {
     dispatch(checkLoginAction());
   }, []);

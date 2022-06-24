@@ -1,6 +1,5 @@
-import { SET_TODO, SET_USER, SET_TOKEN } from "./types";
+import {SET_USER, SET_TOKEN } from "./types";
 import api from "../api";
-
 
 export const setTokenAction = (token) => ({ type: SET_TOKEN, payload: token });
 export const setUserAction = (user) => ({ type: SET_USER, payload: user });
@@ -31,4 +30,3 @@ export const logOut = () => (dispatch) => {
   dispatch(setUserAction(null));
   dispatch(setTokenAction(null));
 };
-

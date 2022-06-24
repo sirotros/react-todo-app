@@ -12,20 +12,22 @@ const todoSchema = yup.object({
   title: yup.string().required().min(5).max(40),
   text: yup.string().min(5).max(200),
 });
+
 function TodoCreate() {
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
-  const sendTodo = async (values) => {
+
+  const sendTodo = async (values, { resetForm }) => {
     const token = localStorage.getItem("jwt");
     if (!token) {
       return navigate("/login");
     }
-    const newTodo = {title: values.title,text: values.text,complete: false,user: user.id};
+    const newTodo = { title: values.title, text: values.text, user: user.id };
     await todoCreate(newTodo);
   };
   return (
     <div>
-      <Card padding>
+      <Card bigPadding border shadow>
         <h1>Create Todo</h1>
 
         <div>
@@ -52,7 +54,7 @@ function TodoCreate() {
                 />
 
                 <Button type="submit" isLoading={isSubmitting}>
-                  Login
+                  Submit
                 </Button>
               </Form>
             )}

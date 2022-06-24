@@ -1,0 +1,13 @@
+.detail{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .todo{
+        width: 90%;
+    }
+    .icon{
+        width: 20px;
+        height:20px;
+        cursor: pointer;
+    }
+}

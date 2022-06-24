@@ -1,4 +1,4 @@
-import { SET_USER, SET_TOKEN,SET_TODO } from "./types";
+import { SET_USER, SET_TOKEN } from "./types";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 const INITIAL_STATE = {

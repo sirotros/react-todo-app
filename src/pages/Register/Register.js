@@ -23,7 +23,7 @@ function Register() {
   };
   return (
     <div className={s.registerWrapper}>
-      <Card padding>
+      <Card bigPadding border shadow >
         <h1>Register Page</h1>
 
         <div>

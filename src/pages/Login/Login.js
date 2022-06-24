@@ -14,14 +14,14 @@ const registerSchema = yup.object({
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   const login = async (values) => {
-    await dispatch(loginAction(values))
-    navigate("/")
+    await dispatch(loginAction(values));
+    navigate("/");
   };
   return (
     <div>
-      <Card padding>
+      <Card bigPadding border shadow>
         <h1>Login </h1>
 
         <div>
@@ -50,10 +50,8 @@ function Login() {
                   type="submit"
                   className="btn"
                   isLoading={isSubmitting}
-                  color="red"
-                  variant="outline"
                 >
-                  Register
+                  Login
                 </Button>
               </Form>
             )}

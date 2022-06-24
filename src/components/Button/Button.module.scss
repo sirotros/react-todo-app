@@ -7,13 +7,20 @@
   &.sm {
     width: 50px;
   }
-  .icon{
-    animation: loading 1s ease-in-out infinite forwards;
-  }
+
 }
 
+.loadingIcon {
+	animation: loading 1s ease-in-out infinite forwards;
+  font-size: 17px;
+}
 
 @keyframes loading {
-  from{transform: rotate(0deg)}
-  to{transform: 360deg}
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
 }

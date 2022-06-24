@@ -1,11 +1,11 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import TodoCreate from "../../components/TodoCreate/TodoCreate";
 import TodoItem from "../../components/TodoItem/TodoItem";
 import { useState, useEffect } from "react";
 import { fetchTodo } from "../../api";
 function Home() {
-  const user = useSelector((state) => state.user);
   const [todos, setTodos] = useState();
+  const user = useSelector((state) => state.user);
   const fetchTodos = async () => {
     const data = await fetchTodo(user.id);
     setTodos(data);

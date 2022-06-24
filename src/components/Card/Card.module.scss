@@ -1,15 +1,15 @@
 .card {
   width: 600px;
   background: #fff;
-  // border-radius: 10px;
-  &.bigPadding {
-    padding: 20px;
-  }
-  &.radius{
-    border-radius: 5px;
-  }
+  border-radius: 5px;
   &.padding{
     padding: 10px;
+  }
+  &.bigPadding {
+    padding: 25px;
+  }
+  &.radius{
+    border-radius: 10px;
   }
   &.border {
     border: 1px solid #333;
