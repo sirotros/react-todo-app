@@ -6,24 +6,25 @@ import { Formik, Form, Field } from "formik";
 import Input from "../Input/Input";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { todoCreate } from "../../api";
+import { todoCreates } from "../../api";
 
 const todoSchema = yup.object({
   title: yup.string().required().min(5).max(40),
   text: yup.string().min(5).max(200),
 });
 
-function TodoCreate() {
+function TodoCreate({ fetchTodos }) {
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
 
-  const sendTodo = async (values, { resetForm }) => {
+  const sendTodo = async (values) => {
     const token = localStorage.getItem("jwt");
     if (!token) {
       return navigate("/login");
     }
     const newTodo = { title: values.title, text: values.text, user: user.id };
-    await todoCreate(newTodo);
+    await todoCreates(newTodo);
+    fetchTodos();
   };
   return (
     <div>

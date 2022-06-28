@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 import { fetchTodo } from "../../api";
 function Home() {
   const [todos, setTodos] = useState();
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user?.id);
   const fetchTodos = async () => {
-    const data = await fetchTodo(user.id);
+    const data = await fetchTodo(user);
     setTodos(data);
   };
   useEffect(() => {
@@ -15,10 +15,9 @@ function Home() {
   }, [user]);
   return (
     <div>
-      <TodoCreate />
-      {todos
-        ? todos.map((todo) => <TodoItem key={todo.id} todos={todo} />)
-        : null}
+      <TodoCreate fetchTodos={fetchTodos} />
+
+      {todos && todos.map((todo) => <TodoItem key={todo.id} todos={todo} />)}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import axios from "axios";
+
 const api = axios.create({
   baseURL: `http://localhost:1337/api`,
 });
@@ -27,15 +28,13 @@ export const fetchTodoDetail = async (todoId) => {
   const { data } = await api.get(`/todos/${todoId}`);
   return data;
 };
-export const todoCreate = async (todoData) => {
+export const todoCreates = async (todoData) => {
   const token = localStorage.getItem("jwt");
 
   if (!token) return;
-  await api.post("/todos", { data: todoData });
+  return api.post("/todos", { data: todoData });
 };
 
 export const deleteTodos = async (todoId) => {
   return api.delete(`/todos/${todoId}`);
 };
-
-
